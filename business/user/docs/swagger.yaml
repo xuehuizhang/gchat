@@ -1,0 +1,71 @@
+definitions:
+  bo.UserLoginBo:
+    properties:
+      code:
+        type: string
+      mobile:
+        type: string
+    type: object
+  bo.UserRegisterBo:
+    properties:
+      code:
+        type: string
+      mobile:
+        type: string
+      nick:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /api/user/login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/bo.UserLoginBo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+      summary: 用户登录
+      tags:
+      - User
+  /api/user/register:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/bo.UserRegisterBo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+      summary: 用户注册
+      tags:
+      - User
+swagger: "2.0"
